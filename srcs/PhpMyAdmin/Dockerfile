@@ -25,4 +25,3 @@ COPY srcs/run.sh .
 RUN chmod +x run.sh
 EXPOSE 5000
 ENTRYPOINT sh run.sh
-

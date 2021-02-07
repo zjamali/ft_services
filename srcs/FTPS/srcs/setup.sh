@@ -4,4 +4,6 @@ rc-status
 touch /run/openrc/softlevel
 rc-service vsftpd restart
 rc-service vsftpd status
-/bin/sh
+while true
+do	/bin/sh
+done
