@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+ labels:
+  app: nginx
+spec:
+ selector:
+  matchLabels:
+   app: nginx
+ template:
+  metadata:
+   labels:
+    app: nginx
+  spec:
+   containers:
+   - name: nginx-container
+     image: nginx-image
+     imagePullPolicy: IfNotPresent
+     ports:
+     - containerPort: 80
+     - containerPort: 443
+     - containerPort: 22
