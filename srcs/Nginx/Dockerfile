@@ -2,7 +2,7 @@ FROM alpine:3.12
 RUN  apk update && apk add nginx && apk add openrc --no-cache && apk add openssl && apk add openssh 
 RUN echo -e "Zouhair\nZouhair" | adduser zjamali
 RUN adduser -D -g 'www' www
-VOLUME [ “/sys/fs/cgroup” ]
+#VOLUME [ “/sys/fs/cgroup” ]
 RUN mkdir /www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
