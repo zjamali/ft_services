@@ -20,7 +20,7 @@ RUN tar -xzvf latest.tar.gz
 RUN rm latest.tar.gz
 RUN mv wordpress/* .
 RUN rm -rf wordpress
-RUN srcs/wp-config.php .
+COPY srcs/wp-config.php .
 WORKDIR /home
 COPY srcs/run.sh .
 RUN chmod +x run.sh
