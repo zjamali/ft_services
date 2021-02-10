@@ -48,7 +48,3 @@ spec:
  clusterIP: 10.106.164.244
  selector:
   app: nginx
-status:
- loadBalancer:
-  ingress:
-  - ip: 192.168.99.240

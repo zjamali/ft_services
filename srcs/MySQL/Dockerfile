@@ -7,9 +7,18 @@ RUN touch /run/openrc/softlevel
 RUN /etc/init.d/mariadb setup
 RUN rc-update add mariadb default 
 RUN rc-service mariadb start && \
-mysql -u root -e "CREATE DATABASE wp";
+mysql -u root -e "CREATE DATABASE wp"; 
+RUN  rc-service mariadb restart && \
+mysql -u root -e "CREATE USER 'zjamali'@'%' IDENTIFIED BY 'Zouhair'"; 
+RUN  rc-service mariadb restart && \
+mysql -u root -e "GRANT ALL PRIVILEGES ON * . * TO 'zjamali'@'%'"; 
+RUN  rc-service mariadb restart && \
+mysql -u root -e "FLUSH PRIVILEGES"; 
+#RUN sed 's/skip-networking/#skip-networking/' /etc/my.cnf.d/mariadb-server.cnf
+#RUN sed 's/#bind-address=0.0.0.0/bind-address=0.0.0.0/' /etc/my.cnf.d/mariadb-server.cnf 
+RUN rc-service mariadb restart
 WORKDIR /home
 COPY srcs/run.sh .
 RUN chmod +x run.sh
 EXPOSE 3306
-ENTRYPOINT sh run.sh
+CMD sh run.sh

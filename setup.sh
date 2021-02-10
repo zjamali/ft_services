@@ -5,19 +5,18 @@ sh srcs/setup_metallb.sh
 # building nginx image
 
 echo "!!!building nginx image"
-cd srcs/Nginx
-docker build -t nginx-image .
+docker build -t nginx-image srcs/Nginx/
 
-# building nginx image
-cd ../..
+# building mysql image
+
 echo "!!!building mysql image"
-cd srcs/MySQL
-docker build -t mysql-image .
+docker build -t mysql-image srcs/MySQL/
 
-# building nginx image
-cd ../..
+# building phpmyadmin image
 echo "!!!building phpmyadmin image"
-cd srcs/PhpMyAdmin
-docker build -t phpmyadmin-image .
+docker build -t phpmyadmin-image srcs/PhpMyAdmin/
 
 
+# building Wordpress image
+echo "!!!building phpmyadmin image"
+docker build -t wordpress-image srcs/Wordpress/
