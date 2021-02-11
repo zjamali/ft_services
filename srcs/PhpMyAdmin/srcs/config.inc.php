@@ -155,4 +155,4 @@ $cfg['SaveDir'] = '';
 
 
 $cfg['PmaNoRelation_DisableWarning'] = TRUE;
-$cfg['TempDir'] = '/www/temp/';
+$cfg['TempDir'] = 'temp/';

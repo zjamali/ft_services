@@ -18,10 +18,9 @@ WORKDIR /www/
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN rm phpMyAdmin-5.0.2-all-languages.tar.gz
-RUN mv phpMyAdmin-5.0.2-all-languages/* .
-RUN rm -rf phpMyAdmin-5.0.2-all-languages
-COPY srcs/config.inc.php .
-RUN mkdir temp && chmod 777 temp
+RUN mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+COPY srcs/config.inc.php phpmyadmin/
+RUN mkdir phpmyadmin/temp && chmod 777 phpmyadmin/temp
 WORKDIR /home
 COPY srcs/run.sh .
 RUN chmod +x run.sh
