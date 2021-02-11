@@ -19,6 +19,13 @@ spec:
      imagePullPolicy: IfNotPresent
      ports:
      - containerPort: 3306
+     volumeMounts:
+     - name: mysql-persistent-storage
+       mountPath: /var/lib/mysql
+   volumes:
+   - name: mysql-persistent-storage
+     persistentVolumeClaim:
+      claimName: mysql-pv-claim
 ---
 apiVersion: v1
 kind: Service
@@ -34,3 +41,14 @@ spec:
    protocol: TCP
  selector:
   app: mysql
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: mysql-pv-claim
+spec:
+ accessModes:
+   - ReadWriteOnce
+ resources:
+   requests:
+     storage: 1Gi
