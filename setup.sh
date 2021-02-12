@@ -60,6 +60,7 @@ kubectl apply -f srcs/nginx-deployement.yaml
 echo "${C_SPRINGGREEN3}\n ${NO_FORMAT}"
 echo "${C_SPRINGGREEN3}   ----> MySQL --->${NO_FORMAT}"
 echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
+
 kubectl apply -f srcs/mysql-deployment.yaml
 
 echo "${C_SPRINGGREEN3}\n ${NO_FORMAT}"
