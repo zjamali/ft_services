@@ -1,4 +1,6 @@
 
+eval $(minikube -p minikube docker-env)
+
 NO_FORMAT="\033[0m"
 C_SPRINGGREEN3="\033[38;5;35m"
 C_INDIANRED1="\033[38;5;203m"

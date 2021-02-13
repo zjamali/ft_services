@@ -1,9 +1,12 @@
 FROM alpine:3.12
 COPY srcs/run.sh .
+COPY srcs/wp.sql .
 RUN chmod +x run.sh  &&\
 apk add mysql mysql-client  openrc --no-cache  &&\
 openrc  &&\
 touch /run/openrc/softlevel  &&\
-rc-update add mariadb default 
+rc-update add mariadb default &&\
+openrc &&\
+touch /run/openrc/softlevel
 EXPOSE 3306
 ENTRYPOINT sh run.sh
