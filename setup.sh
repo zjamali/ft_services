@@ -42,7 +42,17 @@ echo "${C_SPRINGGREEN3}   !!!building ftps image"
 echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
 docker build -t ftps-image srcs/FTPS/
 
+# building Grafana image
+echo "${C_SPRINGGREEN3}\n\n${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}   !!!building Grafana image"
+echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
+docker build -t grafana-image srcs/Grafana
 
+# building influxdb image
+echo "${C_SPRINGGREEN3}\n\n${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}   !!!building InfluxDB image"
+echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
+docker build -t influxdb-image srcs/InfluxDB
 
 
 echo "${C_DODGERBLUE2}\n\n/*****************************/${NO_FORMAT}"
@@ -78,7 +88,20 @@ kubectl apply -f srcs/phpmyadmin-deployement.yaml
 echo "${C_SPRINGGREEN3}\n ${NO_FORMAT}"
 echo "${C_SPRINGGREEN3}   ----> Wordpress --->${NO_FORMAT}"
 echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
- kubectl apply -f srcs/wordpress-deployement.yaml 
+kubectl apply -f srcs/wordpress-deployement.yaml 
+
+
+echo "${C_SPRINGGREEN3}\n ${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}   ----> InfluxDB --->${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
+kubectl apply -f srcs/influxdb-deployement.yaml 
+
+echo "${C_SPRINGGREEN3}\n ${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}   ----> Grafana --->${NO_FORMAT}"
+echo "${C_SPRINGGREEN3}\n${NO_FORMAT}"
+kubectl apply -f srcs/grafana-deployement.yaml
+
+
 
 
 echo "${C_SPRINGGREEN3}\n -- done --${NO_FORMAT}"

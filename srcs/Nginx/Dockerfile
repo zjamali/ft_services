@@ -2,6 +2,8 @@ FROM alpine:3.12
 COPY srcs/run.sh .
 RUN chmod +x run.sh &&\
 apk update && apk add nginx && apk add openrc --no-cache && apk add openssl && apk add openssh  &&\
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&\
+apk add telegraf &&\
 echo -e "Zouhair\nZouhair" | adduser zjamali  &&\
 adduser -D -g 'www' www  &&\
 mkdir /www  &&\

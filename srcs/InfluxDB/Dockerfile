@@ -1,2 +1,11 @@
 FROM alpine:3.12
-RUN apk add influxdb
+COPY srcs/run.sh .
+RUN chmod +x run.sh &&\ 
+apk add openrc influxdb &&\
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&\
+apk add telegraf &&\
+openrc &&\
+touch /run/openrc/softlevel &&\
+rc-update add influxdb default
+EXPOSE 8086
+ENTRYPOINT sh run.sh

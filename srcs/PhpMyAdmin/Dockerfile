@@ -2,6 +2,8 @@ FROM alpine:3.12
 COPY srcs/run.sh /
 RUN chmod +x /run.sh &&\
 apk update && apk add nginx openrc --no-cache php7-fpm phpmyadmin &&\
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&\
+apk add telegraf &&\
 adduser -D -g 'www' www &&\
 mkdir /www &&\
 chown -R www:www /var/lib/nginx &&\
