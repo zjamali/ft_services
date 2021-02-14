@@ -3,6 +3,8 @@ COPY srcs/setup.sh .
 COPY srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf 
 RUN chmod +x setup.sh &&\
 apk update && apk add vsftpd && apk add openrc && apk add openssl &&\
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&\
+apk add telegraf &&\
 openrc  &&\
 touch /run/openrc/softlevel  &&\
 rc-update add vsftpd default  &&\

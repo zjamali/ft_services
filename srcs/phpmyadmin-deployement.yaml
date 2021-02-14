@@ -15,8 +15,8 @@ spec:
   spec:
    containers:
    - name: phpmyadmin
-     image: phpmyadmin-image
-     imagePullPolicy: IfNotPresent
+     image: phpmyadmin
+     imagePullPolicy: Never
      ports:
      - containerPort: 5000
 ---

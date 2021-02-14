@@ -1,5 +1,5 @@
 rc-status
-rc-service influxdb restart
+rc-service influxdb start
 rc-status -s
 while true
 do	/bin/sh

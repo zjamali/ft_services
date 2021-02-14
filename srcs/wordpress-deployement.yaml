@@ -15,8 +15,8 @@ spec:
   spec:
    containers:
    - name: wordpress
-     image: wordpress-image
-     imagePullPolicy: IfNotPresent
+     image: wordpress
+     imagePullPolicy: Never
      ports:
      - containerPort: 5050
 ---
@@ -27,11 +27,11 @@ metadata:
  annotations:
   metallb.universe.tf/allow-shared-ip: sharing key
  labels:
-  app: phpmyadmin
+  app: wordpress
 spec:
  type: LoadBalancer
  ports:
- - name: wordpress
+ - name: wp
    port: 5050
    targetPort: 5050
    protocol: TCP
