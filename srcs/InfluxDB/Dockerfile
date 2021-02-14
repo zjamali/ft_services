@@ -6,6 +6,8 @@ echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositor
 apk add telegraf &&\
 openrc &&\
 touch /run/openrc/softlevel &&\
-rc-update add influxdb default
+rc-update add influxdb default &&\
+mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig 
+COPY srcs/telegraf.conf /etc/telegraf.conf
 EXPOSE 8086
 ENTRYPOINT sh run.sh

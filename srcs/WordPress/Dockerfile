@@ -19,8 +19,10 @@ tar -xzvf latest.tar.gz &&\
 rm latest.tar.gz &&\
 rm wordpress/wp-config-sample.php &&\
 mv wordpress/* . &&\
-rm -rf wordpress
+rm -rf wordpress &&\
+mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig
 COPY srcs/wp-config.php .
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
+COPY srcs/telegraf.conf /etc/telegraf.conf
 EXPOSE 5050
 ENTRYPOINT sh /run.sh

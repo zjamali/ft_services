@@ -1,5 +1,6 @@
 rc-status -s
-/usr/sbin/grafana-server -homepath /usr/share/grafana start
+rc-service telegraf start
+./bin/grafana-server
 while true
 do	/bin/sh
 done

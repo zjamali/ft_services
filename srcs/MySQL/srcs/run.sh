@@ -16,6 +16,8 @@ rc-service mariadb start
 sleep 5
 #fi
 rc-service mariadb restart
+sleep 2
+rc-service telegraf start
 while true
 do	/bin/sh
 done
