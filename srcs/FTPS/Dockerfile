@@ -10,8 +10,8 @@ touch /run/openrc/softlevel  &&\
 rc-update add vsftpd default  &&\
 echo -e "Zouhair\nZouhair" | adduser zjamali  &&\
 echo "zjamali" | tee -a /etc/vsftpd.userlist  &&\
-mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig &&\
+#mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig &&\
 openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=mydomain.com" -addext "subjectAltName=DNS:mydomain.com" -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
-COPY srcs/telegraf.conf /etc/telegraf.conf
+COPY srcs/telegraf.conf /etc/
 EXPOSE 21
 ENTRYPOINT sh setup.sh

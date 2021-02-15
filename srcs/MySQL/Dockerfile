@@ -9,8 +9,8 @@ openrc  &&\
 touch /run/openrc/softlevel  &&\
 rc-update add mariadb default &&\
 openrc &&\
-mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig &&\
+#mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig &&\
 touch /run/openrc/softlevel
-COPY srcs/telegraf.conf /etc/telegraf.conf
+COPY srcs/telegraf.conf /etc/
 EXPOSE 3306
 ENTRYPOINT sh run.sh
