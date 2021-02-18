@@ -1,7 +1,5 @@
 #!/bin/bash
-
-#if [ ! -f /var/lib/mysql/ib_buffer_pool ] ; then 
-/etc/init.d/mariadb setup
+ /etc/init.d/mariadb setup
 sleep 2
 rc-service mariadb start
 sleep 2

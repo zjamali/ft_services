@@ -1,6 +1,9 @@
 FROM alpine:3.12
 COPY srcs/run.sh .
-RUN chmod +x run.sh &&\ 
+COPY srcs/stop-supervisor.sh /stop-supervisor.sh
+RUN chmod +x run.sh  &&\
+chmod +x /stop-supervisor.sh &&\
+apk add supervisor &&\
 apk add openrc && \
 apk add libc6-compat &&\
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&\
