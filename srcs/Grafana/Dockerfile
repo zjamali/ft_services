@@ -16,7 +16,7 @@ tar -zxvf grafana-7.4.1.linux-amd64.tar.gz
 WORKDIR  /grafana-7.4.1
 COPY srcs/telegraf.conf /etc/
 COPY srcs/grafana.db /grafana-7.4.1/data/
+COPY srcs/supervisord.conf /etc/supervisord.conf
 EXPOSE 3000
-ENTRYPOINT sh /run.sh
-
-
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+#ENTRYPOINT sh /run.sh
