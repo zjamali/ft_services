@@ -1,4 +1,4 @@
-
+minikube start
 eval $(minikube -p minikube docker-env)
 
 NO_FORMAT="\033[0m"
@@ -103,5 +103,10 @@ kubectl apply -f srcs/grafana-deployement.yaml
 
 
 
+echo "${C_SPRINGGREEN3}\n      -- done --${NO_FORMAT}"
 
-echo "${C_SPRINGGREEN3}\n -- done --${NO_FORMAT}"
+echo "${C_DODGERBLUE2}\n\n/*****************************/${NO_FORMAT}"
+echo "${C_DODGERBLUE2}       minikube dashboard      ${NO_FORMAT}"
+echo "${C_DODGERBLUE2}/*****************************/${NO_FORMAT}"
+
+minikube dashboard
