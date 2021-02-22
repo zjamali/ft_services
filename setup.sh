@@ -1,11 +1,25 @@
-minikube start
-eval $(minikube -p minikube docker-env)
-
 NO_FORMAT="\033[0m"
 C_SPRINGGREEN3="\033[38;5;35m"
 C_INDIANRED1="\033[38;5;203m"
 C_DODGERBLUE2="\033[38;5;27m"
-#echo  "${C_SPRINGGREEN3}Put some color on me${NO_FORMAT}"
+echo "\n" 
+echo  "                          )           )        "
+echo  "    )    (         (   ( /(    (   ( /(    (   "
+echo  "   (     )\   (    )\  )\())  ))\  )\())  ))\  "
+echo  "   )\  '((_)  )\ )((_)((_)\  /((_)((_)\  /((_) "
+echo  " _((_))  (_) _(_/( (_)| |(_)(_))( | |(_)(_))   "
+echo  "| '  \() | || ' \))| || / / | || || '_ \/ -_)  "
+echo  "|_|_|_|  |_||_||_| |_||_\_\  \_,_||_.__/\___|  "
+                                              
+
+echo "${C_DODGERBLUE2}\n\n/*****************************/${NO_FORMAT}"
+echo "${C_DODGERBLUE2}       start minikube   ${NO_FORMAT}"
+echo "${C_DODGERBLUE2}/*****************************/\n${NO_FORMAT}"
+
+minikube start
+
+eval $(minikube -p minikube docker-env)
+
 
 echo "${C_DODGERBLUE2}\n\n/*****************************/${NO_FORMAT}"
 echo "${C_DODGERBLUE2}       building docker images     ${NO_FORMAT}"
@@ -107,6 +121,6 @@ echo "${C_SPRINGGREEN3}\n      -- done --${NO_FORMAT}"
 
 echo "${C_DODGERBLUE2}\n\n/*****************************/${NO_FORMAT}"
 echo "${C_DODGERBLUE2}       minikube dashboard      ${NO_FORMAT}"
-echo "${C_DODGERBLUE2}/*****************************/${NO_FORMAT}"
+echo "${C_DODGERBLUE2}/*****************************/\n\n${NO_FORMAT}"
 
 minikube dashboard

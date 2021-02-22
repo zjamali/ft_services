@@ -8,9 +8,7 @@ apk add telegraf &&\
 openrc &&\
 touch /run/openrc/softlevel &&\
 rc-update add influxdb default
-#mv /etc/telegraf.conf /etc//etc/telegraf.conf.orig 
 COPY srcs/telegraf.conf /etc/
 COPY srcs/supervisord.conf /etc/supervisord.conf
 EXPOSE 8086
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-#ENTRYPOINT sh run.sh

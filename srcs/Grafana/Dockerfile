@@ -1,8 +1,6 @@
 FROM alpine:3.12
-COPY srcs/run.sh .
 COPY srcs/stop-supervisor.sh /stop-supervisor.sh
-RUN chmod +x run.sh  &&\
-chmod +x /stop-supervisor.sh &&\
+RUN chmod +x /stop-supervisor.sh &&\
 apk add supervisor &&\
 apk add openrc && \
 apk add libc6-compat &&\
@@ -19,4 +17,3 @@ COPY srcs/grafana.db /grafana-7.4.1/data/
 COPY srcs/supervisord.conf /etc/supervisord.conf
 EXPOSE 3000
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-#ENTRYPOINT sh /run.sh
